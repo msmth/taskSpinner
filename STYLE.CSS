@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #333;
+}
+
+/* Wheel Spinner CSS */
+
+.container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .spinBtn{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: 0.1mm;
+  border: 4px solid rgba(0,0,0,0.75);
+  cursor: pointer;
+  user-select: none;
+}
+
+.container .spinBtn::before{
+  content: '';
+  position: absolute;
+  top: -28px;
+  width: 20px;
+  height: 30px;
+  background: #fff;
+  clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
+}
+
+.container .wheel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #333;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 5px #333,
+  0 0 0 15px #fff,
+  0 0 0 18px #111;
+  transition: transform 5s ease-in-out;
+}
+
+.container .wheel .number {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: var(--clr);
+  transform-origin: bottom right;
+  transform: rotate(calc(45deg * var(--i)));
+  clip-path: polygon(0 0, 56% 0, 100% 100%, 0 56%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+.container .wheel .number span {
+  position: relative;
+  transform: rotate(45deg);
+  font-size: 2em;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 3px 5px 2px rgba(0,0,0,0.15);
+}
+
+/* To Do CSS */
+.to-do-container {
+  width: 300px;
+  height: 400px;
+  background-color: #111;
+  padding: 20px;
+  margin-left: 60px;
+  box-shadow: 0 0 0 5px #333,
+  0 0 0 15px #fff,
+  0 0 0 18px #111;
+  border-radius: 10px;
+}
+
+.to-do-container h3 {
+ color: #fff; 
+ padding:10px;
+ text-align: left;
+}
+
+.to-do-container input[type="text"] {
+  width: 75%;
+  padding: 8px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 12px;
+}
+
+.to-do-container .addBtn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #27ae60;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.to-do-container .addBtn:hover {
+  background-color: #219653; /* Change color on hover */
+}
+
+.to-do-container li {
+  display: flex; /* Make the list item a flex container */
+  align-items: center; /* Align content vertically */
+  padding: 12px; /* Adjust padding to add space around the list items */
+  margin-bottom: 8px; /* Add margin between list items */
+  color: #fff;
+  font-size: small;
+  border-radius: 5px;
+}
+
+/* Remove margins and padding from the list */
+.to-do-container ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+.to-do-container ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 8px;
+  list-style-type: none;
+  font-size: 12px;
+  transition: 0.2s;
+  
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Darker background-color on hover */
+.to-do-container ul li:hover {
+  background: #ddd;
+  border-radius: 5px;
+}
+
+/* When clicked on, add a background color and strike out text */
+.to-do-container ul li.checked {
+  background: #888;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* Style the close button */
+.to-do-container .close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+  border-radius: 5px;
+}
+
+.to-do-container .close:hover {
+  background-color: #f44336;
+  color: white;
+}
